@@ -1,0 +1,102 @@
+#Exercicio 2
+
+Implemente Companhia.java e Pessoa.java , conforme especificação do diagrama de classe exercise02.puml ,
+
+Siga as especificações: Uma companhia emprega pessoas mas não as mantém em seu estado. O único estado que a Companhia mantém é o seu número de empregados. Uma pessoa trabalha para companhias, mas ela não as mantém em seu estado. Uma companhia emprega ou demite uma pessoa, mantendo em seu estado o conjunto de pessoas que trabalha na companhia. É possı́vel consultar e atualizar o nome de uma companhia. Uma companhia é capaz de calcular o valor da sua folha de pagamento. Uma pessoa mantém o seu nome e sobrenome. É possivel consultar e alterar o nome e sobrenome de uma pessoa. Uma pessoa mantém o seu salário, permite a sua consulta e a sua atualização. No relacionamento entre Companhia e Pessoa a seguinte convenção para os valores dos salários é utilizada para a implementação dos métodos de contratação e demissão de Companhia. Uma pessoa com salário de valor 0.0 é uma pessoa desempregada. Uma pessoa com salário maior que 0.0 é uma pessoa empregada. Portanto, uma contratação somente tem sucesso se no momento da contratação o salário da pessoa é 0.0 e, nesse caso, o salário é atualizado para o valor do salário utilizado na contratação. Simetricamente, somente é possı́vel demitir uma pessoa com salário maior que 0.0 e, no momento da demissão, o salário é zerado.
+
+
+#Exercicio 3
+
+Implemente Companhia.java e Pessoa.java , conforme especificações AssocBid.jpg e exercise03.puml .
+
+Uma companhia emprega pessoas e as mantêm em seu estado. Uma pessoa trabalha para uma companhia e também mantém a companhia para a qual trabalha em seu estado. Uma companhia emprega ou demite pessoas. Uma companhia mantém em seu estado o conjunto de pessoas que emprega. É possı́vel consultar e atualizar o nome de uma companhia. É possı́vel consultar o número de empregados de uma companhia. O menor número de empregados de uma companhia é zero. Uma companhia é capaz de calcular o valor da sua folha de pagamento.
+
+Uma pessoa mantém o seu nome e sobrenome. É possivel consultar e alterar o nome e sobrenome de uma pessoa. Uma pessoa mantém o seu salário, permite a sua consulta e a sua atualização. É possı́vel consultar a companhia para a qual a pessoa trabalha. O estado da associação com a companhia é utilizado por pessoa e por companhia para estabelecer se uma pessoa está empregada ou não. Uma pessoa se emprega em ou se demite de uma e somente uma companhia. No momento da contratação, a pessoa determina o seu próprio salário na companhia em que se contrata, ao executar o método contrataSe ou durante a sua construção.
+
+Não é possı́vel utilizar as operações de contratação ou demissão, seja de Pessoa, seja de Companhia, para atualizar o salário de uma pessoa. A única forma de atualizar o salário de uma pessoa é através de uma demissão seguida de uma re-contratação. Os métodos de contratação de Pessoa e de Companhia são semanticamente equivalentes.
+
+#Exercicio 4
+
+Implemente Companhia.java e Pessoa.java 
+
+
+
+Neste projeto uma associação é implementada através de uma
+classe.
+Pessoas e companhias mantêm associação bidirecional através de
+contratos.
+Um contrato mantém em seu estado referências para uma
+companhia, uma pessoa e o salário da pessoa. Um contrato
+permite a consulta à companhia, à pessoa e ao valor do salário da
+pessoa, mas não permite atualizações parciais de seu estado. O
+estado de um contrato deve ser iniciado exclusivamente durante a
+sua construção.
+Uma pessoa mantém em seu estado uma referência para o contrato
+que mantém com uma companhia. Uma pessoa é considerada
+contratada por uma companhia se o seu estado tem uma referência
+válida para aquela companhia, caso contrário, a pessoa está
+desempregada. Uma pessoa pode se contratar e se demitir de uma
+companhia. Adicionalmente, uma pessoa pode ser contratada na
+sua instanciação. Uma pessoa permite que os seguintes valores de
+seu estado sejam consultados: nome, sobrenome, salário e a
+companhia que a emprega, se estiver empregada.
+
+Uma companhia mantém em seu estado referência para o seu
+conjunto de contratos. Através dos contratos pode determinar seu
+número de empregados, se uma pessoa é sua colaboradora, e o
+valor da sua folha de pagamentos. Uma pessoa pode contratar e
+demitir uma pessoa; o salário da pessoa contratada é determinado
+no momento da contratação. Uma companhia permite que se
+determine se uma pessoa trabalha para ela ou não.
+Não é possı́vel utilizar as operações de contratação ou demissão,
+seja de Pessoa, seja de Companhia, para atualizar o salário de uma
+pessoa. A única forma de atualizar o salário de uma pessoa é
+através de uma demissão seguida de uma re-contratação.
+Os métodos de contratação de Pessoa e de Companhia são
+semanticamente equivalentes e podem ser utilizados
+intercaladamente.
+
+
+
+
+
+06 e07
+IMplemente Empregado.java , Engenheiro.java , Gerente.java e Vendedor.java . Analise o diagrama de classe para implementação exercise06.png e exercise06.puml uponha uma hierarquia simples entre duas classes. Classe A é especializada pela Classe B, isto é, B especializa A. Dependendendo da semântica da especialização pode ser vantajoso localizar a implementação de um ou mais métodos na classe A, mãe, ao invés de na classe B, filha. O inverso também pode ser interessante. Como decidir qual a melhor estratégia de implementação dos métodos? Que implicação essa decisão traz para a especialização? Especificação Um empregado recebe um salário base mensal mais um adicional relativo à função que desempenha na empresa. O adicional pode ser determinado de várias formas, por exemplo, por desempenho, por comissão, etc. Até o momento, existem três tipos de empregados: Gerente, Vendedor e Engenheiro. Para cada um dos projetos:  estude o diagrama UML que se encontra junto ao código fonte de cada um dos projetos (.png) implemente as classes, atributos e métodos indicados no diagrama de classes; teste a sua implementação utilizando o teste disponı́vel no projeto; adicione comentários em Empregado.java que expliquem cada uma das soluções.
+
+
+
+
+
+
+
+
+
+
+Uma companhia emprega pessoas e as mantêm em seu estado.
+Uma pessoa trabalha para uma companhia e também mantém a
+companhia para a qual trabalha em seu estado.
+Uma companhia emprega ou demite pessoas. Uma companhia
+mantém em seu estado o conjunto de pessoas que emprega. É
+possı́vel consultar e atualizar o nome de uma companhia. É
+possı́vel consultar o número de empregados de uma companhia. O
+menor número de empregados de uma companhia é zero. Uma
+companhia é capaz de calcular o valor da sua folha de pagamento.
+
+Uma pessoa mantém o seu nome e sobrenome. É possivel consultar
+e alterar o nome e sobrenome de uma pessoa. Uma pessoa
+mantém o seu salário, permite a sua consulta e a sua atualização.
+É possı́vel consultar a companhia para a qual a pessoa trabalha. O
+estado da associação com a companhia é utilizado por pessoa e por
+companhia para estabelecer se uma pessoa está empregada ou não.
+Uma pessoa se emprega em ou se demite de uma e somente uma
+companhia. No momento da contratação, a pessoa determina o
+seu próprio salário na companhia em que se contrata, ao executar
+o método contrataSe ou durante a sua construção.
+
+Não é possı́vel utilizar as operações de contratação ou demissão,
+seja de Pessoa, seja de Companhia, para atualizar o salário de uma
+pessoa. A única forma de atualizar o salário de uma pessoa é
+através de uma demissão seguida de uma re-contratação.
+Os métodos de contratação de Pessoa e de Companhia são
+semanticamente equivalentes.
+

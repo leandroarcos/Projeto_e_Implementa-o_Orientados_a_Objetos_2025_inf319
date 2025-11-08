@@ -1,0 +1,11 @@
+# IDE configuration files
+**/.idea
+**/.classpath
+**/.project
+**/.settings/
+
+# emacs
+**/*~
+
+# maven
+/target/

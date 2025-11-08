@@ -1,0 +1,41 @@
+@startuml
+abstract class inf319.exercise07.Empregado {
+- double salario
+# double salario()
+# void setSalario(double)
+}
+
+
+class inf319.exercise07.Engenheiro {
+- double comissaoProjeto
++ double getComissaoProjeto()
++ void setComissaoProjeto(double)
++ void setSalario(double)
++ double salario()
+}
+
+
+class inf319.exercise07.Gerente {
+- double bonusSucesso
++ double getBonusSucesso()
++ void setBonusSucesso(double)
++ void setSalario(double)
++ double salario()
+}
+
+
+class inf319.exercise07.Vendedor {
+- double comissaoVenda
++ double getComissaoVenda()
++ void setComissaoVenda(double)
++ void setSalario(double)
++ double salario()
+}
+
+
+
+
+inf319.exercise07.Empregado <|-- inf319.exercise07.Engenheiro
+inf319.exercise07.Empregado <|-- inf319.exercise07.Gerente
+inf319.exercise07.Empregado <|-- inf319.exercise07.Vendedor
+@enduml

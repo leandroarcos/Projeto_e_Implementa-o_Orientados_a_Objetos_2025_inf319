@@ -1,0 +1,24 @@
+@startuml
+class inf319.umUmCompanhiaPessoa.Companhia {
+- String nomeCompanhia
+- int numeroEmpregados
++ String getNome()
++ int getNumeroEmpregados()
++ void emprega(Pessoa,double)
++ void demite(Pessoa)
+}
+
+
+class inf319.umUmCompanhiaPessoa.Pessoa {
+- String nome
+- String sobrenome
+- double salario
++ String getNome()
++ String getSobrenome()
++ double getSalario()
++ void setSalario(double)
+}
+
+inf319.umUmCompanhiaPessoa.Companhia --> inf319.umUmCompanhiaPessoa.Pessoa
+
+@enduml

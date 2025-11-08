@@ -1,0 +1,53 @@
+@startuml
+class inf319.exercise05.Companhia {
+- String nome_companhia
+- ContratosDeTrabalho contratos
++ String getNome()
++ void setContratos(ContratosDeTrabalho)
++ ContratosDeTrabalho getContratos()
++ void emprega(Pessoa,double)
++ void demite(Pessoa)
++ double custoTotal()
+}
+
+
+class inf319.exercise05.Contrato {
+- Companhia empregador
+- Pessoa empregado
+- double salario
++ Companhia getEmpregador()
++ Pessoa getEmpregado()
++ double getSalario()
+}
+
+
+class inf319.exercise05.ContratosDeTrabalho {
+- Map<Pessoa,HashSet<Contrato>> contratosEmpregados
+- Map<Companhia,HashSet<Contrato>> contratosEmpregadores
++ Set<Contrato> getEmpregadores(Pessoa)
++ Set<Contrato> getEmpregados(Companhia)
++ void emprega(Companhia,Pessoa,double)
++ void demite(Companhia,Pessoa)
++ double salarioTotal(Pessoa)
++ double custoTotal(Companhia)
+}
+
+
+class inf319.exercise05.Pessoa {
+- String nome
+- String sobrenome
+- ContratosDeTrabalho contratos
++ void setContratos(ContratosDeTrabalho)
++ ContratosDeTrabalho getContratos()
++ String getName()
++ Set<Companhia> getEmpregos()
++ double getSalarioTotal()
+}
+
+inf319.exercise05.Companhia --> inf319.exercise05.ContratosDeTrabalho
+inf319.exercise05.Pessoa --> inf319.exercise05.ContratosDeTrabalho
+inf319.exercise05.Contrato --> inf319.exercise05.Pessoa
+inf319.exercise05.Contrato --> inf319.exercise05.Companhia
+inf319.exercise05.ContratosDeTrabalho ..> inf319.exercise05.Contrato
+inf319.exercise05.Pessoa ..> inf319.exercise05.Companhia
+@enduml

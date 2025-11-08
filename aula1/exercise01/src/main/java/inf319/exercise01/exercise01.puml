@@ -1,0 +1,30 @@
+@startuml
+class inf319.exercise01.Pessoa {
+- String nome
+- String sobrenome
+- Companhia companhia
+- double salario
++ String getNome()
++ String getSobrenome()
++ Companhia getCompanhia()
++ double getSalario()
++ void setNome(String)
++ void setSobrenome(String)
++ void setSalario(double)
++ void contrataSe(Companhia,double)
++ void demiteSe()
+}
+
+
+class inf319.exercise01.Companhia {
+- String nome
+- int numeroEmpregados
++ String getNome()
++ int getNumeroEmpregados()
++ void setNome(String)
++ void incrementaEmpregados()
++ void decrementaEmpregados()
+}
+
+inf319.exercise01.Pessoa --> inf319.exercise01.Companhia
+@enduml

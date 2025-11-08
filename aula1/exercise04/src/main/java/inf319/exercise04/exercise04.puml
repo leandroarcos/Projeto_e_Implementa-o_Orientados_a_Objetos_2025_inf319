@@ -1,0 +1,40 @@
+@startuml
+class inf319.exercise04.Contrato {
+- Companhia empregador
+- Pessoa empregado
+- double salario
++ Companhia getEmpregador()
++ Pessoa getEmpregado()
++ double getSalario()
+}
+
+
+class inf319.exercise04.Pessoa {
+- String nome
+- String sobrenome
+- Contrato contratoTrabalho
++ void setNome(String)
++ String getNome()
++ void setSobreNome(String)
++ String getSobreNome()
++ Companhia getEmprego()
++ double getSalario()
++ void emprega(Contrato)
++ void demite()
+}
+
+
+class inf319.exercise04.Companhia {
+- String nome_companhia
+- Map<Pessoa,Contrato> contratosTrabalho
++ String getNome()
++ void emprega(Pessoa,double)
++ void demite(Pessoa)
++ double custoTotal()
+}
+
+inf319.exercise04.Pessoa "1" --> "0..1" inf319.exercise04.Contrato : contratoTrabalho
+inf319.exercise04.Companhia "1" --> "0..*" inf319.exercise04.Contrato : contratosTrabalho
+inf319.exercise04.Contrato "1" --> "0..1" inf319.exercise04.Pessoa : empregado
+inf319.exercise04.Contrato "1" --> "0..1" inf319.exercise04.Companhia : empregador
+@enduml

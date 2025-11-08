@@ -1,0 +1,25 @@
+@startuml
+class inf319.exercise08.Queue {
+# {static} int DEFAULTQUEUESIZE
+# int queueMaxSize
+# int front
+# int rear
+# Object[] queue
++ boolean enqueue(Object)
++ Object dequeue()
++ int remaining()
++ int size()
++ int maxSize()
++ boolean empty()
+}
+
+
+class inf319.exercise08.Stack {
++ boolean push(Object)
++ Object pop()
+}
+
+
+
+inf319.exercise08.Queue <|-- inf319.exercise08.Stack
+@enduml

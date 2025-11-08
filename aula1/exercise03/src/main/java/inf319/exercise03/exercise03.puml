@@ -1,0 +1,26 @@
+@startuml
+class inf319.exercise03.Pessoa {
+- String nome
+- String sobrenome
+- Companhia emprego
+- double salario
++ String getNome()
++ String getSobrenome()
++ Companhia getEmprego()
++ double getSalario()
++ void emprega(Companhia,double)
++ void demite()
+}
+
+
+class inf319.exercise03.Companhia {
+- String nome_companhia
+- Set<Pessoa> empregados
++ String getNome()
++ void emprega(Pessoa,double)
++ void demite(Pessoa)
++ double custoTotal()
+}
+
+inf319.exercise03.Companhia "1" -- "n" inf319.exercise03.Pessoa : employs
+@enduml
