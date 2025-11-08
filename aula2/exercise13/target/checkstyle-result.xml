@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<checkstyle version="8.35">
+<file name="/home/leandro/unicamp/curso_unicamp/inf319/aula2/exercise13/src/main/java/br/unicamp/ic/inf319/PartNumber.java">
+</file>
+<file name="/home/leandro/unicamp/curso_unicamp/inf319/aula2/exercise13/src/main/java/br/unicamp/ic/inf319/Part.java">
+</file>
+<file name="/home/leandro/unicamp/curso_unicamp/inf319/aula2/exercise13/src/main/java/br/unicamp/ic/inf319/PiecePart.java">
+</file>
+<file name="/home/leandro/unicamp/curso_unicamp/inf319/aula2/exercise13/src/main/java/br/unicamp/ic/inf319/Assembly.java">
+</file>
+</checkstyle>

@@ -1,0 +1,134 @@
+diff --git a/src/main/java/br/unicamp/ic/inf319/Assembly.java b/src/main/java/br/unicamp/ic/inf319/Assembly.java
+index 842e14e..262a247 100644
+--- a/src/main/java/br/unicamp/ic/inf319/Assembly.java
++++ b/src/main/java/br/unicamp/ic/inf319/Assembly.java
+@@ -1,10 +1,9 @@
+ package br.unicamp.ic.inf319;
+ 
+ import java.util.Collections;
+-
++import java.util.Iterator;
+ import java.util.LinkedList;
+ import java.util.List;
+-import java.util.Iterator;
+ 
+ /**
+  * <img src="./doc-files/Assembly.png" alt="Assembly">
+@@ -59,9 +58,39 @@ public class Assembly extends Part {
+      *
+      * @return String list
+      */
+-
+     @Override
+     public String list() {
++        return list(0);
++    }
+ 
++    /**
++     * Implementa a operação de listagem para montagens (Assembly).
++     * Lista a montagem e seus componentes, ordenados pelo código da peça,
++     * com indentação crescente para cada nível de hierarquia.
++     * @param indent Nível de indentação
++     * @return String formatada da montagem e seus componentes
++     */
++    @Override
++    protected String list(int indent) {
++        StringBuilder sb = new StringBuilder();
++        // Imprime a montagem atual com a indentação
++        for (int i = 0; i < indent; i++) {
++            sb.append(" ");
++        }
++        sb.append("Parte: ")
++          .append(getPartNumber().getNumber())
++          .append("; Descricao: ")
++          .append(getDescription())
++          .append("; Custo: ")
++          .append(cost())
++          .append("\n");
++        // Ordena as partes pelo código
++        List<Part> ordered = new LinkedList<>(parts);
++        Collections.sort(ordered);
++        // Lista cada componente, aumentando a indentação
++        for (Part p : ordered) {
++            sb.append(p.list(indent + 1));
++        }
++        return sb.toString();
+     }
+ }
+diff --git a/src/main/java/br/unicamp/ic/inf319/Part.java b/src/main/java/br/unicamp/ic/inf319/Part.java
+index b5a5ed8..c4c780b 100644
+--- a/src/main/java/br/unicamp/ic/inf319/Part.java
++++ b/src/main/java/br/unicamp/ic/inf319/Part.java
+@@ -30,13 +30,23 @@ public abstract class Part implements Comparable {
+     public abstract double cost();
+     
+     /**
+-     *
+-     * @return list
++     * Implementa a operação de listagem genérica para partes.
++     * Este método serve como base para as subclasses, permitindo
++     * que a indentação seja controlada recursivamente.
++     * Por padrão, retorna a listagem sem indentação.
+      */
+     public String list() {
+-
++        return list(0);
+     }
+ 
++    /**
++     * Método protegido para listagem com indentação.
++     * Cada subclasse implementa sua própria lógica de listagem.
++     * @param indent Nível de indentação
++     * @return String formatada da parte
++     */
++    protected abstract String list(int indent);
++
+     /**
+      *
+      * @return description
+diff --git a/src/main/java/br/unicamp/ic/inf319/PiecePart.java b/src/main/java/br/unicamp/ic/inf319/PiecePart.java
+index 18876cb..7653f50 100644
+--- a/src/main/java/br/unicamp/ic/inf319/PiecePart.java
++++ b/src/main/java/br/unicamp/ic/inf319/PiecePart.java
+@@ -30,12 +30,11 @@ public class PiecePart extends Part {
+     }
+     
+     /**
+-     *
+-     * @return String list
++     * Retorna a listagem da peça simples sem indentação extra.
+      */
+     @Override
+     public String list() {
+-
++        return list(0);
+     }
+     
+     /**
+@@ -45,4 +44,26 @@ public class PiecePart extends Part {
+     public void setCost(double c) {
+     	cost = c;
+     }
++
++    /**
++     * Implementa a listagem para uma peça simples.
++     * Retorna a string formatada conforme especificação, com indentação.
++     * @param indent Nível de indentação
++     * @return String formatada da peça
++     */
++    @Override
++    protected String list(int indent) {
++        StringBuilder sb = new StringBuilder();
++        for (int i = 0; i < indent; i++) {
++            sb.append(" ");
++        }
++        sb.append("Parte: ")
++          .append(getPartNumber().getNumber())
++          .append("; Descricao: ")
++          .append(getDescription())
++          .append("; Custo: ")
++          .append(cost())
++          .append("\n");
++        return sb.toString();
++    }
+ }
